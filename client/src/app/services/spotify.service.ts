@@ -16,14 +16,9 @@ export class SpotifyService {
   constructor(private http:HttpClient) { }
 
   private sendRequestToExpress(endpoint:string):Promise<any> {
-    //TODO: use the injected http Service to make a get request to the Express endpoint and return the response.
-    //the http service works similarly to fetch(). It may be useful to call .toPromise() on any responses.
-    //update the return to instead return a Promise with the data from the Express server
-    //Note: toPromise() is a deprecated function that will be removed in the future.
-    //It's possible to do the assignment using lastValueFrom, but we recommend using toPromise() for now as we haven't
-    //yet talked about Observables. https://indepth.dev/posts/1287/rxjs-heads-up-topromise-is-being-deprecated
     const url = this.expressBaseUrl + endpoint
-    return this.http.get(url).toPromise()
+    console.log(url);
+    return this.http.get(url).toPromise();
   }
 
   aboutMe():Promise<ProfileData> {
@@ -39,9 +34,13 @@ export class SpotifyService {
     //Depending on the category (artist, track, album), return an array of that type of data.
     //JavaScript's "map" function might be useful for this, but there are other ways of building the array.
     const endpoint = `/search?type=${category}&q=${encodeURIComponent(resource)}`;
+    console.log("searchFor");
+    
     return this.sendRequestToExpress(endpoint).then((info) => {
+      console.log("req success")
       switch (category) {
         case "artist":
+          console.log(info.artists.items.map((data) => new ArtistData(data)));
           return info.artists.items.map((data) => new ArtistData(data));
           break;
         case "track":
@@ -99,7 +98,14 @@ export class SpotifyService {
   getAudioFeaturesForTrack(trackId:string):Promise<TrackFeature[]> {
     //TODO: use the audio features for track endpoint to make a request to express.
     const endpoint = `/audio-features/${encodeURIComponent(trackId)}`
-    return null as any
-    //return this.sendRequestToExpress(endpoint).then((info) => new TrackFeature());
+    return this.sendRequestToExpress(endpoint).then((info) => {
+      var featureList = []
+      TrackFeature.FeatureTypes.forEach((feat) => {
+        var percent = info[feat];
+        var featObj = new TrackFeature(feat, percent);
+        featureList.push(featObj)
+      })
+      return featureList;
+    });
   }
 }

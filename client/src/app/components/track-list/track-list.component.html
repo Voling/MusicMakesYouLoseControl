@@ -5,26 +5,25 @@
 			<th scope="col">Track</th>
 			<th scope="col">Duration</th>
 			<!--TODO: Use *ngIf to hide if hideArtist is true-->
-			<th scope="col">Primary Artist</th>
+			<th *ngIf="hideArtist == false" scope="col">Primary Artist</th>
 			<!--TODO: Use *ngIf to hide if hideAlbum is true-->
-			<th scope="col">Album</th>
+			<th *ngIf="hideAlbum == false" scope="col">Album</th>
 		</tr>
 	</thead>
 	<tbody>
 		<!--TODO: Use *ngFor to loop over tracks-->
-		<tr>
-			<!--TODO: Populate with row index (start with 1!)-->
-			<td>???</td>
+		<tr *ngFor = "let item of tracks, let i = index">
+			<!--use index (starts from 0) and add 1-->
+			<td> i </td>
 			<td>
 				<!--TODO: link to the endpoint for that track, display the track's name-->
-				<a>???</a>
+				<a href="{{ item.externalUrls.spotify }}" target="_blank"> {{item.name}}</a>
 			</td>
-			<!--TODO: display the track's duration-->
-			<td>???</td>
+			<td>{{item.duration_ms}}</td>
 			<!--TODO: Use *ngIf to hide if hideArtist is true; link to the first artist's endpoint and display the first artist's name-->
-			<td><a></a></td>
-			<!--TODO: Use *ngIf to hide if hideAlbum is true; link to the album's endpoint and display the album's name-->
-			<td><a></a></td>
+			<td *ngIf="hideArtist == false"><a href="{{item.artists[0].externalUrls.spotify}}" target="_blank">{{item.artists[0].name}}</a></td>
+			<!-- album contains name from *response* -->
+			<td *ngIf="hideAlbum == false"><a>{{item.album.name}}</a></td>
 		</tr>
 	</tbody>
 </table>
