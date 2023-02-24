@@ -14,6 +14,5 @@ export class ThermometerComponent implements OnInit {
   ngOnInit() {
   }
   color() {
-
   }
 }

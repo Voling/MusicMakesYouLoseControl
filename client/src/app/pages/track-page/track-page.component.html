@@ -25,8 +25,8 @@
 			<a href="{{track.externalUrls.spotify}}" class="btn btn-light" role="button" target="_blank">Open {{track.name}} on Spotify</a>
 		</p>
 	</div>
-	<div *ngIf="audioFeatures" *ngFor="let feature of audioFeatures" class="col-6">
+	<div *ngIf="audioFeatures" class="col-6">
 		<!--TODO: loop over types of features and create a thermometer component for each-->
-		<thermometer> {{features.name}} </thermometer>
+		<thermometer> </thermometer>
 	</div>
 </div>
