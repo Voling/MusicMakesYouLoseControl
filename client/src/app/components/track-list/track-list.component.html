@@ -14,7 +14,7 @@
 		<!--TODO: Use *ngFor to loop over tracks-->
 		<tr *ngFor = "let item of tracks, let i = index">
 			<!--use index (starts from 0) and add 1-->
-			<td> i </td>
+			<td> i+1 </td>
 			<td>
 				<!--TODO: link to the endpoint for that track, display the track's name-->
 				<a href="{{ item.externalUrls.spotify }}" target="_blank"> {{item.name}}</a>

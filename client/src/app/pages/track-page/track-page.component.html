@@ -27,6 +27,11 @@
 	</div>
 	<div *ngIf="audioFeatures" class="col-6">
 		<!--TODO: loop over types of features and create a thermometer component for each-->
-		<thermometer> </thermometer>
+		<div *ngFor="let feat in audioFeatures">
+			<div *ngIf="isFloat(feat)">
+				<app-thermometer [name]="feat.name" [percentage]="feat"> </app-thermometer>
+			</div>
+		</div>
+		
 	</div>
 </div>

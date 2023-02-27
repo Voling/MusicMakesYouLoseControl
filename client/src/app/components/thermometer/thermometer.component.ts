@@ -13,6 +13,9 @@ export class ThermometerComponent implements OnInit {
 
   ngOnInit() {
   }
+  isFloat(val): boolean {
+    return typeof val === 'number';
+  }
   color() {
   }
 }
