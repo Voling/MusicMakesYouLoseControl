@@ -1,4 +1,4 @@
---Readme document for Dylan Vo, Jerome Liwanag, dylanlv@uci.edu, 81272000-- jfliwana@uci.edu, 85571497--
+--Readme document for Dylan Vo, Jerome Liwanag, dylanlv@uci.edu, 81272000--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
@@ -30,7 +30,7 @@ No classmates besides aside from ourselves were consulted for this assignment.
 
 5. Did you add a bonus feature to your submission? If so, what is it and how should we see it?
 
-
+No
 
 6. Is there anything special we need to know in order to run your code?
 
