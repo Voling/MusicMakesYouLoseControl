@@ -14,9 +14,9 @@
 <!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.-->
 
 <div *ngIf="searchCategory === 'album' || searchCategory === 'artist'">
-	<div class="carousel" [resources]="resources"></div>
+	<app-carousel [resources]="resources"></app-carousel>
 </div>
 <div *ngIf="searchCategory === 'track'">
 	<!-- track list -->
-	<div class="track-list" [resources] = "resources"></div>
+	<track-list [resources] = "resources"></track-list>
 </div>

@@ -11,7 +11,6 @@ export class AboutComponent implements OnInit {
   profile_pic:string = "../../../assets/unknown.jpg";
   profile_link:string = null;
 
-  //TODO: inject the Spotify service
   constructor(public spotifyServ: SpotifyService) { }
 
   ngOnInit() {
