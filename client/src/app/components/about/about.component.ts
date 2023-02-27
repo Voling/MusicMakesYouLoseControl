@@ -21,7 +21,6 @@ export class AboutComponent implements OnInit {
   In that function, update the name, profile_pic, and profile_link fields */
   getAboutMe() {
     this.spotifyServ.aboutMe().then((data) => {
-      console.log("hello2");
       this.name = data.name;
       this.profile_link = data.spotifyProfile;
       this.profile_pic = data.imageURL;

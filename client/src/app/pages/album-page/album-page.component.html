@@ -1,13 +1,13 @@
 <div *ngIf="album" class="row">
 	<div class="col-6">
 		<!--TODO: populate with album name-->
-		<h1>???</h1>
+		<h1>album.name</h1>
 		<!--TODO: set src to album image URL-->
-		<img id="albumImg">
+		<img id="albumImg" [src]="album.imageURL">
 		<!--TODO: loop over album artists-->
 		<p>
 			<!--TODO: link to artist page, display artist name-->
-			Artist: <a>???</a>
+			Artist: <a></a>
 		</p>
 		<p>
 			<!--TODO: link to album page on spotify, display album name-->

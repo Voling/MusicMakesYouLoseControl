@@ -1,7 +1,7 @@
 <h1>Search Spotify</h1>
-<!--TODO: bind input's model to searchString-->
+<!-- bind input's model to searchString-->
 <input [(ngModel)] ="searchString">
-<!--TODO: bind select's model to searchCategory-->
+<!-- bind select's model to searchCategory-->
 <select [(ngModel)] ="searchCategory">
 	<option *ngFor = "let category of searchCategories" [value]="category" [selected]="searchCategory === category "> {{ category }}</option>
 </select> <!-- select, iterate over searchcategories-->
@@ -14,9 +14,9 @@
 <!--TODO: Display a track-list component if searching for a track. Bind track-list's tracks.-->
 
 <div *ngIf="searchCategory === 'album' || searchCategory === 'artist'">
-	<carousel [resources] = "resources"></carousel>
+	<div class="carousel" [resources]="resources"></div>
 </div>
 <div *ngIf="searchCategory === 'track'">
 	<!-- track list -->
-	<track-list [resources] = "resources"></track-list>
+	<div class="track-list" [resources] = "resources"></div>
 </div>
