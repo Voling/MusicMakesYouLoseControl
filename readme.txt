@@ -1,4 +1,4 @@
---Readme document for Dylan Vo, Jerome Liwanag, dylanlv@uci.edu, 81272000--
+--Readme document for Dylan Vo, Jerome Liwanag, dylanlv@uci.edu, 81272000--, jfliwana@uci.edu, 85571497
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 

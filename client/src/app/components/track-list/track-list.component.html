@@ -12,18 +12,18 @@
 	</thead>
 	<tbody>
 		<!--TODO: Use *ngFor to loop over tracks-->
-		<tr *ngFor = "let item of tracks, let i = index">
+		<tr *ngFor = "let track of tracks, let i = index">
 			<!--use index (starts from 0) and add 1-->
-			<td> i+1 </td>
+			<td> {{i+1}} </td>
 			<td>
 				<!--TODO: link to the endpoint for that track, display the track's name-->
-				<a href="{{ item.externalUrls.spotify }}" target="_blank"> {{item.name}}</a>
+				<a [routerLink]="['/' + 'track', track.id]" target="_blank"> {{track.name}}</a>
 			</td>
-			<td>{{item.duration_ms}}</td>
+			<td>{{track.durationStr}}</td>
 			<!--TODO: Use *ngIf to hide if hideArtist is true; link to the first artist's endpoint and display the first artist's name-->
-			<td *ngIf="hideArtist == false"><a href="{{item.artists[0].externalUrls.spotify}}" target="_blank">{{item.artists[0].name}}</a></td>
+			<td *ngIf="hideArtist == false"><a [routerLink]="['/' + 'artist', track.artists[0].id]" target="_blank">{{track.artists[0].name}}</a></td>
 			<!-- album contains name from *response* -->
-			<td *ngIf="hideAlbum == false"><a>{{item.album.name}}</a></td>
+			<td *ngIf="hideAlbum == false"><a [routerLink]="['/' + 'album', track.album.id]">{{track.album.name}}</a></td>
 		</tr>
 	</tbody>
 </table>

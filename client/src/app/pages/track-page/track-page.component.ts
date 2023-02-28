@@ -17,11 +17,16 @@ export class TrackPageComponent implements OnInit {
   audioFeatures:TrackFeature[];
 
   constructor(private route: ActivatedRoute, private spotifyServ: SpotifyService) { }
-
+  makePercent(num) {
+    num*=100;
+    return parseFloat(num).toFixed(2)+'%';
+  }
   ngOnInit() {
   	this.trackId = this.route.snapshot.paramMap.get('id');
   	//TODO: Inject the spotifyService and use it to get the track data and it's audio features
+    
     this.spotifyServ.getTrack(this.trackId).then((retvalue) => {
+      this.track = retvalue;
       this.trackId = retvalue.id;
     });
 

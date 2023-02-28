@@ -26,6 +26,7 @@ export class ArtistPageComponent implements OnInit {
     // artist data
     this.spotifyServ.getArtist(this.artistId).then((retvalue) => {
       this.artist = retvalue;
+      console.log(this.artist);
     });
     // related artists
     this.spotifyServ.getRelatedArtists(this.artistId).then((retvalue) => {

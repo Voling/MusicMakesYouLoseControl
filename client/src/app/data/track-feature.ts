@@ -16,8 +16,5 @@ export class TrackFeature {
 		return (this.percent*100).toFixed() + '%';
 	}
 
-	get color() {
-		return 0;
-		//return chroma.mix('red', 'green', this.percent, 'hsl').hex();
-	}
+	
 }

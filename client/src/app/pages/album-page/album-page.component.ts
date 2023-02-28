@@ -20,11 +20,15 @@ export class AlbumPageComponent implements OnInit {
 
   ngOnInit() {
   	this.albumId = this.route.snapshot.paramMap.get('id');
-    this.spotifyService.getAlbum(this.albumId).then((retvalue)=> {
-      return this.album = retvalue;
+    this.spotifyService.getAlbum(this.albumId).then((retvalue) => {
+      this.album = retvalue;
+      console.log(this.album)
+      
     })
-    this.spotifyService.getTracksForAlbum(this.albumId).then((retvalue)=> {
-      return this.tracks = retvalue;
+    this.spotifyService.getTracksForAlbum(this.albumId).then((retvalue) => {
+      
+      this.tracks = retvalue;
+      console.log(this.tracks);
     })
   }
 

@@ -1,8 +1,8 @@
 <!--TODO bind src with the album/artist/song image URL-->
-<a [href]="resource.url" target="_blank">
+<a [routerLink]="['/' + resource.category, resource.id]">
 	<img class="d-block w-100" [src]="resource.imageURL">
-	<!--TODO: populate h5 with the album/artist/song name-->
 	<div class="carousel-caption d-none d-md-block">
-		<h5>{{resource.name}}</h5>
+	   <h5>{{resource.name}}</h5>
 	</div>
-</a>
+ </a>
+ 

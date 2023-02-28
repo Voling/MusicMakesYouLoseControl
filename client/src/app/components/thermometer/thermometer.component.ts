@@ -8,14 +8,15 @@ import chroma from 'node_modules/chroma-js';
 export class ThermometerComponent implements OnInit {
   //TODO: define Input fields and bind them to the template.
   @Input() name:string;
-  @Input() percentage:number;
+  @Input() visiblePercentage:number;
+  @Input() truePercentage:number;
   constructor() { }
 
   ngOnInit() {
   }
-  isFloat(val): boolean {
-    return typeof val === 'number';
-  }
+  
   color() {
-  }
+    var scale = chroma.scale(['red', 'yellow', 'green']);
+		return scale(this.truePercentage).css();
+	}
 }
