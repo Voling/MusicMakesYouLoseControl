@@ -1,7 +1,7 @@
 # Music Makes You Lose Control
-Written with TypeScript.
+Written with NodeJS and TypeScript.
 
-Deploy the app using 
+Deploy the app using:
 ```
 npm run server
 ```
